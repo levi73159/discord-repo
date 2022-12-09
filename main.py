@@ -7,6 +7,7 @@ from threading import Thread
 import time
 import json
 import os
+from keep_alive import keep_alive
 
 
 intents = discord.Intents.default()
@@ -170,4 +171,6 @@ async def on_reaction_remove(reaction: discord.Reaction, user: discord.User):
         add_paycheck(user.id, 1)
 
 
+
+keep_alive()
 client.run(os.getenv('KEY'))
