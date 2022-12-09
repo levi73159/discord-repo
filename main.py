@@ -7,6 +7,7 @@ from threading import Thread
 import time
 import json
 import os
+import keep_alive
 
 
 intents = discord.Intents.default()
@@ -169,5 +170,5 @@ async def on_reaction_remove(reaction: discord.Reaction, user: discord.User):
     elif reaction.emoji == '⬇':
         add_paycheck(user.id, 1)
 
-
+keep_alive.keep_alive()
 client.run(os.getenv('KEY'))
